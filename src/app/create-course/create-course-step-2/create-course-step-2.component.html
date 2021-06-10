@@ -1,0 +1,28 @@
+<div [formGroup]="form">
+  <mat-radio-group formControlName="courseType">
+    <mat-radio-button value="free">Free</mat-radio-button>
+    <mat-radio-button value="premium">Premium</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Price" formControlName="price" />
+  </mat-form-field>
+  <file-upload
+    requireFileType="image/png"
+    formControlName="thumnail"
+  ></file-upload>
+  <mat-form-field>
+    <mat-label>Promotional periods</mat-label>
+    <mat-date-range-input [rangePicker]="picker" formGroupName="promoPeriod">
+      <input matStartDate formControlName="start" placeholder="start date" />
+      <input matEndDate formControlName="end" placeholder="end date" />
+    </mat-date-range-input>
+    <mat-error *ngIf="form.errors?.isRangeValid"
+      >Start date must be before end date</mat-error
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+</div>
+<div>
+  {{ form.valid | json }}
+</div>

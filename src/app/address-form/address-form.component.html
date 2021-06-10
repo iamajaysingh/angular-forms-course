@@ -1,49 +1,47 @@
-<fieldset [formGroup]="form">
+<fieldset [formGroup]="form" [disabled]="disabled">
+  <legend>{{ legend }}</legend>
 
-    <legend>{{legend}}</legend>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Address Line 1"
+      formControlName="addressLine1"
+      (click)="onToched()"
+    />
+  </mat-form-field>
 
-    <mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Address Line 2"
+      formControlName="addressLine2"
+      (click)="onToched()"
+    />
+  </mat-form-field>
 
-        <input matInput
-               placeholder="Address Line 1"
-               formControlName="addressLine1">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Zip Code"
+      formControlName="zipCode"
+      (click)="onToched()"
+    />
+  </mat-form-field>
 
-    </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="City"
+      formControlName="city"
+      (click)="onToched()"
+    />
+  </mat-form-field>
 
-    <mat-form-field>
+  <div class="form-val">
+    {{ form.value | json }}
+  </div>
 
-        <input matInput
-               placeholder="Address Line 2"
-               formControlName="addressLine2">
-
-    </mat-form-field>
-
-    <mat-form-field>
-
-        <input matInput
-               placeholder="Zip Code"
-               formControlName="zipCode">
-
-    </mat-form-field>
-
-    <mat-form-field>
-
-        <input matInput
-               placeholder="City"
-               formControlName="city">
-
-    </mat-form-field>
-
-    <div class="form-val">
-
-        {{form.value | json}}
-
-    </div>
-
-    <div class="form-val">
-
-        {{form.valid | json}}
-
-    </div>
-
+  <div class="form-val">
+    {{ address | json }}
+  </div>
 </fieldset>
